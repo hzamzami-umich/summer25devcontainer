@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/base:ubuntu
+FROM mcr.microsoft.com/devcontainers/universal:2-linux
 # Update packages
 RUN apt-get update && apt-get install -y xz-utils \
     ca-certificates \
