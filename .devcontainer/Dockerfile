@@ -1,5 +1,15 @@
-FROM mcr.microsoft.com/devcontainers/universal:2-linux
-# Install the xz-utils package
-RUN apt-get update && \
-    apt-get install -y xz-utils && \
-    pip install django
+FROM mcr.microsoft.com/devcontainers/base:ubuntu
+# installing update packages
+RUN apt-get update && apt-get install -y xz-utils \
+    ca-certificates \
+    gnupg \
+    curl \
+    xz-utils \
+    software-properties-common
+# installing node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - && \
+    apt-get install -y nodejs
+# installing go
+RUN curl -OL https://golang.org/dl/go1.21.6.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz && \
+    echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/bash.bashrc
