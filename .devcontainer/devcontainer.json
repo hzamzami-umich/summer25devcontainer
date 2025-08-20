@@ -8,7 +8,18 @@
 	"build": {
         // Path is relative to the devcontainer.json file.
         "dockerfile": "Dockerfile"
-    }
+    },
+
+	"features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22.15.0"
+    },
+	
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "1.24.3"
+	}
+
+}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
